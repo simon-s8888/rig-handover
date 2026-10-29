@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-10-29
 ---
 
 # Morning digest
@@ -77,3 +78,19 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+| # | Issue | Blocked by | Worker | Closed |
+|---|-------|-----------|--------|--------|
+| 1 | Run log reader: src/digest (types.ts first) | — | claude-code · opus-5.5 · low | 2026-10-29 |
+| 2 | Digest page: GET /digest/:night | #1 (types.ts) | claude-code · sonnet-5.5 · default | 2026-10-29 |
+| 3 | Digest JSON: GET /api/digest/:night | #1 (types.ts) | claude-code · sonnet-5.5 · default | 2026-10-29 |
+| 4 | Board link: each night to its digest, with counts | #1 (types.ts) | claude-code · sonnet-5.5 · default | 2026-10-29 |
+| 5 | Route tests for /digest and /api/digest | #1 (types.ts) | claude-code · sonnet-5.5 · default | 2026-10-29 |
+| 6 | Preview for review: public HTML copy of /digest/2026-10-28 | #1–#5 | claude-code · opus-5.5 · low | 2026-10-29 |
+| 7 | Clean up: preview without lane marker, plan to done | #6, review | claude-code · opus-5.5 · low | 2026-10-29 |
+
+#2–#5 ran in parallel, one worktree each. #6 was closed before the review was in and reopened
+until it was. The preview went up with `.agents/skills/preview-upload` (Vercel); the marked
+deploy was removed after the clean one went over the same link.
